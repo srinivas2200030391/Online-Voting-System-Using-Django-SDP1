@@ -28,6 +28,18 @@
       defer
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
      <script defer src="https://cdn.jsdelivr.net/npm/es-module-shims@1/dist/es-module-shims.min.js" crossorigin="anonymous"></script>
+      <style>
+          .img-fluid{
+          }
+          .li{
+          display:flex;
+          padding-left:110px;
+          }
+          .li li{
+          list-style:none;
+          padding:1.5px;
+          }
+      </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -54,10 +66,10 @@
               <a class="nav-link" href="#about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#services">Services</a>
+              <a class="nav-link" href="#services">Necessary</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#portfolio">Portfolio</a>
+              <a class="nav-link" href="#portfolio">Parties</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#team">Team</a>
@@ -105,7 +117,7 @@
               Tirupati, the holy city is located in the southeastern part of
               Andhra Pradesh and Known for 'Kaliyuga' deity Lord Venkateswara.
             </p>
-            <p><a href="#" class="btn btn-warning mt-3">Learn More</a></p>
+            <p><a href={{"https://docs.google.com/document/d/e/2PACX-1vTFoXAfQiKnDpIf6jhOpxFYATIgQzpu5AkhV8IYQN6eeJfXj2YPAc0PND3N5rDNiqHSd4uMBm_HuNGd/pub"}} class="btn btn-warning mt-3">Learn More</a></p>
           </div>
         </div>
         <div class="carousel-item">
@@ -115,9 +127,9 @@
             <p>
               Amaravati, famous for the Amareswara temple, which is dedicated to
               Lord Shiva dates back to the 2nd century BCE and was once the
-              capital of the Satavahanas and also the Pallava kings.
+              capital of the Satavahanas and also the Pallava <kings class=""></kings>
             </p>
-            <p><a href="#" class="btn btn-warning mt-3">Learn More</a></p>
+            <p><a href={{"https://docs.google.com/document/d/e/2PACX-1vSNmVPEDDVM5OoExAQY1iMwVdsxZ0QejOpWugJdZ8QsDxhfWs5ZNq1NcbL21L937OFYhiYTKqfD424f/pub"}} class="btn btn-warning mt-3">Learn More</a></p>
           </div>
         </div>
         <div class="carousel-item">
@@ -173,7 +185,7 @@
                 Andhra Pradesh is divided into three cultural regions:
                 Uttaraandhra, Kostaandhra, and Rayalaseema.
               </p>
-              <a href="#" class="btn btn-warning">Learn More</a>
+              <a href={{"https://docs.google.com/document/d/e/2PACX-1vTPHh0aeJ6Y5vj8OMoPViyW3pz2_u1xrphI5AQJ0h2DXn5O8GBXpAocAm-beBc3Qzr5LiVecgEOkR-V/pub"}} class="btn btn-warning">Learn More</a>
             </div>
           </div>
         </div>
@@ -284,14 +296,14 @@
           <img
                     src="static/img/pawan.jpeg"
                     class="img-fluid"
-                    alt="" />
+                    alt="" style="height:602px;"/>
                 </div>
                 <h3 class="card-title">Pawan Kalyan</h3>
                 <p class="lead">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Adipisci eligendi modi temporibus alias iste. Accusantium?
                 </p>
-                <button class="btn bg-warning text-dark">learn More</button>
+                  <a href={{"https://docs.google.com/document/d/e/2PACX-1vTNVXepBp5lwU1KHzh6XfevZ2FpDA5kXg_nqh06TysyaQGwuAqUHcogGpXKjgmGNDUKBgtCj4hsHNOw/pub"}}> <button class="btn bg-warning text-dark">Learn More</button></a>
               </div>
             </div>
           </div>
@@ -325,36 +337,37 @@
             <div class="section-header text-center pb-5">
               <h2>Our Team</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur <br />adipisicing elit.
-                Non, quo.
+                  People who built this webpage with many amazing features and 24/7 help
               </p>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-12 col-md-6 col-lg-3">
+        <div class="row" style="display:flex; align-items:space-between; justify-content:space-between;">
+          <div class="col-12 col-md-6 col-lg-3" style="width:400px;">
             <div class="card text-center">
               <div class="card-body">
                 <img
-                  src="static/img/hima.jpeg"
+                  src="static/img/Hima.jpeg"
                   alt=""
-                  class="img-fluid rounded-circle" width="130" height="10"/>
+                  class="img-fluid rounded-circle" width="130" style="border-radius:50px;"/>
                 <h3 class="card-title py-2">M. Hima Teja</h3>
                 <p class="card-text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Sequi ipsam nostrum illo tempora esse quibusdam.
+           PFSD student studying 2nd year of Btech in CSE stream.
+                  Interested in working on Artificial Intelligence.
                 </p>
 
-                <p class="socials">
-                  <i class="bi bi-twitter text-dark mx-1"></i>
-                  <i class="bi bi-facebook text-dark mx-1"></i>
-                  <i class="bi bi-linkedin text-dark mx-1"></i>
-                  <i class="bi bi-instagram text-dark mx-1"></i>
-                </p>
+
+                    <ul class="li">
+                  <li> <a href=""> <i class="bi bi-twitter text-dark mx-1"></i></a></li>
+                        <li> <a href=""> <i class="bi bi-facebook text-dark mx-1"></i></a></li>
+                        <li> <a href={{"https://www.linkedin.com/in/himateja-musunuri-28a6621b1/"}}> <i class="bi bi-linkedin text-dark mx-1"></i></a></li>
+                        <li> <a href={{"https://www.instagram.com/_himateja_28/"}}> <i class="bi bi-instagram text-dark mx-1"></i></a></li>
+                  </ul>
+
               </div>
             </div>
           </div>
-          <div class="col-12 col-md-6 col-lg-3">
+          <div class="col-12 col-md-6 col-lg-3" style="width:400px;">
             <div class="card text-center">
               <div class="card-body">
                 <img
@@ -366,17 +379,17 @@
                   PFSD student studying 2nd year of Btech in CSE stream.
                   Interested in full stack web development.
                 </p>
-                <p class="socials">
-                  <i class="bi bi-twitter text-dark mx-1"></i>
-                  <i class="bi bi-facebook text-dark mx-1"></i>
-                  <i class="bi bi-linkedin text-dark mx-1"></i>
-                  <i class="bi bi-instagram text-dark mx-1"></i>
-                </p>
+                 <ul class="li">
+                  <li> <a href=""> <i class="bi bi-twitter text-dark mx-1"></i></a></li>
+                        <li> <a href=""> <i class="bi bi-facebook text-dark mx-1"></i></a></li>
+                        <li> <a href={{"https://www.linkedin.com/in/kommirisetty-srinivas-97a88625a/"}}> <i class="bi bi-linkedin text-dark mx-1"></i></a></li>
+                        <li> <a href={{"https://www.instagram.com/srinivaskommirisetty_13/"}}> <i class="bi bi-instagram text-dark mx-1"></i></a></li>
+                  </ul>
               </div>
             </div>
           </div>
 
-          <div class="col-12 col-md-6 col-lg-3">
+          <div class="col-12 col-md-6 col-lg-3" style="width:400px;">
             <div class="card text-center">
               <div class="card-body">
                 <img
@@ -385,15 +398,15 @@
                   class="img-fluid rounded-circle" width="132"/>
                 <h3 class="card-title py-2">B. Hima Teja</h3>
                 <p class="card-text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Sequi ipsam nostrum illo tempora esse quibusdam.
+                PFSD student studying 2nd year of Btech in CSE stream.
+                  Interested in game development.
                 </p>
-                <p class="socials">
-                  <i class="bi bi-twitter text-dark mx-1"></i>
-                  <i class="bi bi-facebook text-dark mx-1"></i>
-                  <i class="bi bi-linkedin text-dark mx-1"></i>
-                  <i class="bi bi-instagram text-dark mx-1"></i>
-                </p>
+                <ul class="li">
+                  <li> <a href=""> <i class="bi bi-twitter text-dark mx-1"></i></a></li>
+                        <li> <a href=""> <i class="bi bi-facebook text-dark mx-1"></i></a></li>
+                        <li> <a href={{"https://www.linkedin.com/in/himateja-bandrapalli-72711428b/"}}> <i class="bi bi-linkedin text-dark mx-1"></i></a></li>
+                        <li> <a href={{"https://www.instagram.com/_ht_mr_diable_1912_/"}}> <i class="bi bi-instagram text-dark mx-1"></i></a></li>
+                  </ul>
               </div>
             </div>
           </div>
@@ -408,24 +421,22 @@
           <div class="col-md-12">
             <div class="section-header text-center pb-5">
               <h2>Contact Us</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur <br />adipisicing elit.
-                Non, quo.
-              </p>
+
             </div>
           </div>
         </div>
         <div class="row m-0">
           <div class="col-md-12 p-0 pt-4 pb-4">
-            <form action="#" class="bg-light p-4 m-auto">
+            <form action="contactus" class="bg-light p-4 m-auto" method="post">
+                    {% csrf_token %}
               <div class="row">
                 <div class="col-md-12">
                   <div class="mb-3">
                     <input
                       class="form-control"
-                      placeholder="Full Name"
+                      placeholder="Subject"
                       required=""
-                      type="text" />
+                      type="text" name="na"/>
                   </div>
                 </div>
                 <div class="col-md-12">
@@ -434,23 +445,22 @@
                       class="form-control"
                       placeholder="Email"
                       required=""
-                      type="email" />
+                      type="email" name="email"/>
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="mb-3">
-                    <textarea
+                    <input
                       class="form-control"
                       placeholder="Message"
                       required=""
-                      rows="3"></textarea>
+                      rows="3" name="msg"></input>
                   </div>
                 </div>
-                <button
+                <input
                   class="btn btn-warning btn-lg btn-block mt-3"
-                  type="button">
-                  Send Now
-                </button>
+                  type="submit" value="submit" id="submit">
+                </input>
               </div>
             </form>
           </div>
@@ -461,7 +471,7 @@
     <!-- footer starts -->
     <footer class="bg-dark p-2 text-center">
       <div class="container">
-        <p class="text-white">All Right Reserved By @website Name</p>
+        <p class="text-white">All Right Reserved By @Election Commission (AP)</p>
       </div>
     </footer>
     <!-- footer ends -->

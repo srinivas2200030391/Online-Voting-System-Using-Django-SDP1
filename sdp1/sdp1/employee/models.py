@@ -100,7 +100,8 @@ class votervotemapping(models.Model):
 
 
 class Count(models.Model):
-    name = models.CharField(max_length=10,blank=False)
+    objects = None
+    name = models.CharField(max_length=100,blank=False)
     count = models.IntegerField(blank=False)
 
     class Meta:

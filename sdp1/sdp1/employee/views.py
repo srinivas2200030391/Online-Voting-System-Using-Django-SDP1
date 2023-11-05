@@ -1,3 +1,4 @@
+import time
 import random
 
 from django.shortcuts import render
@@ -12,18 +13,31 @@ from django.core.mail import *
 def checkuser(request):
     empuname = request.POST.get("empvotid")
     emppwd = request.POST.get("pwd")
+    if empuname=="" or emppwd=="":
+        return render(request,"login.html")
     flag = Employee.objects.filter(Q(emp_id=empuname) & Q(password=emppwd))
     print(flag)
     if flag:
         request.session["auname"] = empuname
+        now = time.localtime()
+        current_time = time.strftime("%H:%M:%S")
+        request.session["time"]=now
+        print(request.session["time"])
         empdata = Voter.objects.all()
-        return render(request, "dashboard1.html", {"empdata": empdata})
+        h = Voter.objects.count()
+        g = votervotemapping.objects.count()
+        return render(request, "dashboard1.html", {"empdata": empdata, "h": h, "g": g})
     else:
         flag1 = Voter.objects.filter(Q(voter_id=empuname) & Q(password=emppwd))
         if flag1:
             empdata = Contender.objects.all()
+            count = Contender.objects.count()
             request.session["auname"] = empuname
-            return render(request, "dashboard.html", {"empdata": empdata})
+            now = time.localtime()
+            current_time = time.strftime("%H:%M:%S")
+            request.session["time"] = now
+            print(request.session["time"])
+            return render(request, "dashboard.html", {"empdata": empdata, "h": count})
         else:
             return HttpResponse("HEY")
 
@@ -58,7 +72,9 @@ def addvoter(request):
                 gender=gen, password=pw, aadhar=ad, Street=str, contact=ph, alter_contacts=aph, zip=zip, city=cty,
                 country=con, email=emai)
     Voter.save(vot)
-    return render(request, 'dashboard1.html')
+
+    empdata = Voter.objects.all()
+    return render(request, "dashboard1.html", {"empdata": empdata})
 
 
 def addvo1(request):
@@ -69,10 +85,10 @@ def dash(request):
     auname = request.session['auname']
     st = ""
     flag = votervotemapping.objects.all()
-    a=[]
+    a = []
     for i in flag:
         a.append(i.email)
-    flag=Voter.objects.all()
+    flag = Voter.objects.all()
     for i in flag:
         if i.voter_id == int(auname):
             st += i.email
@@ -114,6 +130,16 @@ def send_otp(request):
     return render(request, 'validate_otp.html')
 
 
+def contactus(request):
+    name = request.POST['na']
+    email = request.POST['email']
+    msg = request.POST['msg']
+    to_mail = ["vasus4990@gmail.com"]
+    print(email)
+    send_mail(name, msg, email, to_mail)
+    return render(request, 'index.html')
+
+
 def validate_otp(request):
     email = request.POST['otp']
     user_otp = request.POST['otp']
@@ -145,7 +171,7 @@ def check_pw(request):
 
 
 def logout(request):
-    return render(request, 'login.html')
+    return render(request, 'index.html')
 
 
 def update(request):
@@ -159,7 +185,34 @@ def dashb(request):
 
 
 def dashb1(request):
-    return render(request, 'dashboard1.html')
+    empdata = Voter.objects.all()
+    h = Voter.objects.count()
+    g = votervotemapping.objects.count()
+    return render(request, "dashboard1.html", {"empdata": empdata, 'h': h, 'g': g})
+
+
+def votepk(request):
+    auname = request.session['auname']
+    st = ""
+    flag = Voter.objects.all()
+    for i in flag:
+        if i.voter_id == int(auname):
+            st += i.email
+    if st == "":
+        flag = Employee.objects.all()
+        for i in flag:
+            if i.emp_id == int(auname):
+                st += i.email
+    v = votervotemapping(email=st)
+    votervotemapping.save(v)
+    flag=Count.objects.all()
+    count=0
+    for i in flag:
+        if i.name=="Konidela Pawan Kalyan Babu":
+            count=i.count
+    count+=1
+    Count.objects.filter(name="Konidela Pawan Kalyan Babu").update(count=count)
+    return render(request, "thank.html")
 
 
 def vote(request):
@@ -176,4 +229,66 @@ def vote(request):
                 st += i.email
     v = votervotemapping(email=st)
     votervotemapping.save(v)
+    flag=Count.objects.all()
+    count=0
+    for i in flag:
+        if i.name=="Nara Chandra Babu Naidu":
+            count=i.count
+    count+=1
+    Count.objects.filter(name="Nara Chandra Babu Naidu").update(count=count)
     return render(request, "thank.html")
+
+
+def votejag(request):
+    auname = request.session['auname']
+    st = ""
+    flag = Voter.objects.all()
+    for i in flag:
+        if i.voter_id == int(auname):
+            st += i.email
+    if st == "":
+        flag = Employee.objects.all()
+        for i in flag:
+            if i.emp_id == int(auname):
+                st += i.email
+    v = votervotemapping(email=st)
+    votervotemapping.save(v)
+    flag = Count.objects.all()
+    count = 0
+    for i in flag:
+        if i.name == "Yeduguri Sandinti Jaganmohan Reddy":
+            count = i.count
+    count += 1
+    Count.objects.filter(name="Yeduguri Sandinti Jaganmohan Reddy").update(count=count)
+    return render(request, "thank.html")
+
+
+def dash2(request):
+    auname = request.session['auname']
+    st = ""
+    flag = votervotemapping.objects.all()
+    a = []
+    for i in flag:
+        a.append(i.email)
+    flag = Employee.objects.all()
+    for i in flag:
+        if i.emp_id == int(auname):
+            st += i.email
+    if st not in a:
+        return render(request, "voter.html")
+    else:
+        return render(request, "thank2.html")
+
+
+def dashboardvoter(request):
+    empdata = Contender.objects.all()
+    count = Contender.objects.count()
+    return render(request, "dashboard.html", {"empdata": empdata, "h": count})
+
+
+def calender(request):
+    return render(request, "calender.html")
+
+
+def countvote(request):
+    pass

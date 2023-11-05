@@ -17,5 +17,11 @@ urlpatterns = [
     path('dashboard', views.dashb, name="dashb"),
     path('dashboard1', views.dashb1, name="dashb1"),
     path('dash1', views.dash, name="dash1"),
+    path('dash2', views.dash2, name="dash2"),
+    path('dashboardvoter', views.dashboardvoter, name="dashboardvoter"),
+    path('calender',views.calender,name="calender"),
     path('vote',views.vote,name="vote"),
+    path('votepk',views.votepk,name="votepk"),
+    path('votejgn',views.votejag,name="votejag"),
+    path('contactus',views.contactus,name="contactus"),
 ]

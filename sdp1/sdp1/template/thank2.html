@@ -14,11 +14,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet"  href="{% static  'css/bootstrap.min.css'  %}" />
     <!----css3---->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
     <link rel="stylesheet" href="{% static  'css/custom.css'  %}"/>
     <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -30,14 +28,118 @@
       href="https://fonts.googleapis.com/css2?family=Material+Icons"
       rel="stylesheet" />
     <style>
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
-</style>
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background-color: #0e0e0e;
+}
+
+.container {
+    display: flex;
+}
+.img {
+    width: 200px;
+    height: 200px;
+    border: .3rem solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, .4);
+    overflow: hidden;
+}
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+}
+.card {
+    background-color: rgb(255, 244, 179);
+    margin: 0 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: .5rem;
+    position: relative;
+    cursor: pointer;
+    border: .5rem solid transparent;
+    transition: 200ms ease-in-out transform;
+}
+.check_btn {
+    position: absolute;
+    top: 8%;
+    right: 8%;
+    background-color: rgba(92, 92, 92, .4);
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center;
+    border-radius: .5rem;
+}
+.fa-check {
+    color: #fff;
+}
+.title {
+    margin: 1.5rem 0;
+}
+.title,
+ul li {
+    color: #1f1208;
+    text-shadow: 0 0 .1rem rgba(0, 0, 0, .4);
+}
+
+.card:hover {
+    transform: scale(1.02)
+}
+.card:active {
+    transform: scale(.97)
+}
+
+input[id="card_one"]:checked ~ label[for="card_one"] .card,
+input[id="card_two"]:checked ~ label[for="card_two"] .card,
+input[id="card_three"]:checked ~ label[for="card_three"] .card {
+    border-color: rgb(21, 238, 21);
+}
+/* you can see based on which card is checked the border color will be changed */
+/* ~ selector selects the sibling elements, in this case the label */
+
+input[id="card_one"]:checked ~ label[for="card_one"] .card .check_btn,
+input[id="card_two"]:checked ~ label[for="card_two"] .card .check_btn,
+input[id="card_three"]:checked ~ label[for="card_three"] .card .check_btn {
+    background-color: rgb(21, 238, 21);
+}
+
+input[id="card_one"]:checked ~ label[for="card_one"] .card .img,
+input[id="card_two"]:checked ~ label[for="card_two"] .card .img,
+input[id="card_three"]:checked ~ label[for="card_three"] .card .img {
+    border-color: rgb(21, 238, 21);
+    box-shadow: 0 0 .5rem rgba(21, 238, 21, .6);
+}
+
+/* its all done and the last thing is we need to remove the input radio btns */
+input {
+    display: none;
+}
+      .hy{
+      display:flex;
+      justify-content:center;
+      }
+        .thank{
+        height:80vh;
+        width:70%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding-left:490px;
+        }
+    </style>
   </head>
   <body>
     <div class="wrapper">
@@ -45,15 +147,15 @@
 
       <!-- Sidebar  -->
       <nav id="sidebar">
-        <div class="sidebar-header">
+       <div class="sidebar-header">
           <h3>
-            <a href="dashb1"><img src="{% static  'img/logo.png'  %}"  class="img-fluid" /><span
+            <a href="dashboard1"><img src="{% static  'img/logo.png'  %}"  class="img-fluid" /><span
               >Election Commision(AP)</span
             ></a>
           </h3>
         </div>
         <ul class="list-unstyled components">
-          <li class="active">
+       <li class="active">
             <a href="addvo1" class="dashboard"
               ><i class="material-icons">add</i><span>Add User</span></a
             >
@@ -106,11 +208,11 @@
           </li>
 
                   <li class="active">
-            <a href="dash2" class="dashboard"
+            <a href="#" class="dashboard"
               ><i class="material-icons">where_to_vote</i><span>Cast Your Vote</span></a
             >
           </li>
-                       <li class="">
+                             <li class="">
             <a href="logout"
               ><i class="material-icons">logout</i
               ><span>logout</span></a
@@ -131,7 +233,7 @@
                 <span class="material-icons">arrow_back_ios</span>
               </button>
 
-              <a class="navbar-brand" href="dashboard1"> Dashboard </a>
+              <a class="navbar-brand" href="#"> Dashboard </a>
 
               <button
                 class="d-inline-block d-lg-none ml-auto more-button"
@@ -183,75 +285,10 @@
             </div>
           </nav>
         </div>
-
-        <div class="main-content">
-          <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header">
-                  <div class="icon icon-warning">
-                    <span class="material-icons">equalizer</span>
-                  </div>
-                </div>
-                <div class="card-content">
-                  <p class="category"><strong>Total Voters</strong></p>
-                  <h3 class="card-title">{{h}}</h3>
-                </div>
-                <div class="card-footer"></div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header">
-                  <div class="icon icon-info">
-                    <span class="material-icons"> follow_the_signs </span>
-                  </div>
-                </div>
-                <div class="card-content">
-                  <p class="category"><strong>Total Voted</strong></p>
-                  <h3 class="card-title">{{g}}</h3>
-                </div>
-                <div class="card-footer"></div>
-              </div>
-            </div>
+          <div class="thank">
+              <h1>Thank You For Your Vote</h1>
           </div>
-          <div class="row">
-            <div class="col-lg-7 col-md-12">
-              <div class="card" style="min-height: 485px">
-                <div class="card-header card-header-text">
-                  <h4 class="card-title">Voter Stats</h4>
-                  <p class="category">New employees on 14th October, 2023</p>
-                </div>
-                <div class="card-content table-responsive">
-                  <input class="form-control" id="myInput" type="text" placeholder="User Name">
-                  <table class="table table-hover">
-                    <thead class="text-primary">
-                      <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Zip</th>
-                        <th>Country</th>
-                      </tr>
-                    </thead>
-                    <tbody id="myTable">
-                      {% for emp in empdata %}
-                      <tr>
-                        <td>{{emp.id}}</td>
-                        <td>{{emp.first_name}} {{emp.last_name}}</td>
-                        <td>{{emp.zip}}</td>
-                        <td>{{emp.country}}</td>
-                      </tr>
-                      {% endfor %}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-
-
-
-
+    </form>
           <footer class="footer">
             <div class="container-fluid">
               <div class="row">
@@ -299,14 +336,6 @@
           $("#sidebar,.body-overlay").toggleClass("show-nav");
         });
       });
-      $(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
     </script>
   </body>
 </html>
